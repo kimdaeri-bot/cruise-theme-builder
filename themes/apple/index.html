@@ -146,24 +146,51 @@
     document.getElementById('footer-kakao').href = kakao;
   }
 
-  function renderCards() {
-    const top3 = CRUISES.slice(0, 3);
-    document.getElementById('cards-row').innerHTML = top3.map(c => `
-      <div class="apple-card" onclick="alert('상담 문의: ${A.phone || '02-0000-0000'}')">
-        <div class="apple-card-img">
-          <img src="${c.image}" alt="${c.title}" loading="lazy">
-          <span class="apple-card-badge">${c.badge}</span>
-        </div>
-        <div class="apple-card-body">
-          <div class="apple-card-title">${c.title}</div>
-          <div class="apple-card-sub">${c.operator} · ${c.port} 출발 · ${c.nights}박</div>
-          <div class="apple-card-price">
-            <span class="price">$${c.price.toLocaleString()}</span>
-            <span class="unit">/ 1인</span>
+  function fmtD(d){return new Date(d).toLocaleDateString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit'})}
+  function mkSqCard(c, wide) {
+    const dep = fmtD(c.departure);
+    const kakao = A.kakao || '#';
+    return `<div class="card-sq${wide?' card-wide':''}" onclick="location.href='${kakao}'" style="position:relative">
+      <div class="card-sq-img"><img src="${c.image}" alt="${c.title}" loading="lazy"><div class="card-sq-img-overlay"></div></div>
+      <div class="card-sq-body">
+        <span class="card-sq-badge">${c.badge}</span>
+        <div class="card-sq-title">🚢 ${c.title}</div>
+        <div class="card-sq-meta">📍 ${c.port} · 📅 ${dep} · 🌙 ${c.nights}박</div>
+        <div class="card-sq-footer">
+          <div class="card-sq-price">$${c.price.toLocaleString()} <span>/ 1인</span></div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="card-sq-wish" onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button>
+            <button class="card-sq-cta" onclick="event.stopPropagation();location.href='${kakao}'">예약하기</button>
           </div>
         </div>
       </div>
-    `).join('');
+    </div>`;
+  }
+  function renderCards() {
+    if (CRUISES.length < 6) return;
+    const kakao = A.kakao || '#';
+    const c0 = CRUISES[0]; const dep0 = fmtD(c0.departure);
+    const cinematicCard = `<div class="card-cinematic" onclick="location.href='${kakao}'">
+      <img src="${c0.image}" alt="${c0.title}" loading="lazy">
+      <div class="card-cinematic-overlay">
+        <div class="card-cinematic-body">
+          <span class="card-cinematic-badge">${c0.badge}</span>
+          <div class="card-cinematic-op">${c0.operator}</div>
+          <h2 class="card-cinematic-title">🚢 ${c0.title}</h2>
+          <div class="card-cinematic-meta"><span>📍 ${c0.port} 출발</span><span>📅 ${dep0}</span><span>🌙 ${c0.nights}박 ${c0.nights+1}일</span><span>🗺️ ${c0.destination}</span></div>
+          <div class="card-cinematic-includes"><span class="tag">식사 포함</span><span class="tag">음료 포함</span><span class="tag">엔터</span></div>
+          <div class="card-cinematic-footer">
+            <div class="card-cinematic-price"><span class="price-from">부터</span><div class="price-val">$${c0.price.toLocaleString()} <span class="price-unit">/ 1인</span></div></div>
+            <button class="card-cinematic-wish" onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button>
+            <button class="card-cinematic-cta">예약하기</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    const row2 = `<div class="layout-d-row2">${mkSqCard(CRUISES[1],false)}${mkSqCard(CRUISES[2],false)}</div>`;
+    const row3 = `<div class="layout-d-row3">${mkSqCard(CRUISES[3],true)}${mkSqCard(CRUISES[4],false)}</div>`;
+    const extra = mkSqCard(CRUISES[5], false);
+    document.getElementById('cards-row').innerHTML = cinematicCard + row2 + row3 + `<div class="layout-d-row2">${extra}${mkSqCard(CRUISES[0],false)}</div>`;
   }
 
   function handleSubmit(e) {

@@ -141,13 +141,40 @@ document.getElementById('footer-copyright').textContent=`© 2026 ${name}. All ri
 ['cta-phone','footer-phone'].forEach(id=>{const el=document.getElementById(id);if(el){el.textContent=`📞 ${phone}`;el.href=`tel:${phone.replace(/-/g,'')}`}});
 ['nav-cta','hero-cta','hero-kakao','cta-kakao','footer-kakao'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=kakao});
 const fhp=document.getElementById('footer-homepage');if(fhp)fhp.href=hp;
-const badgeMap={'특가':'badge-special','인기':'badge-popular','얼리버드':'badge-early','럭셔리':'badge-luxury','크리스마스':'badge-holiday'};
 const grid=document.getElementById('deals-grid');
-(window.CRUISE_DATA||[]).forEach(c=>{
-  const dep=new Date(c.departure).toLocaleDateString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit'});
-  const bc=badgeMap[c.badge]||'badge-special';
-  grid.innerHTML+=`<div class="cruise-card" onclick="location.href='${kakao}'"><div class="card-img"><img src="${c.image}" alt="${c.title}" loading="lazy"><span class="card-badge ${bc}">${c.badge}</span></div><div class="card-body"><div class="card-operator">${c.operator}</div><div class="card-title">🚢 ${c.title}</div><div class="card-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep} · ${c.nights}박 ${c.nights+1}일</span><span>🗺️ ${c.destination}</span></div><div class="card-includes"><span>포함:</span><span><span class="check">✓</span> 식사</span><span><span class="check">✓</span> 음료</span><span><span class="check">✓</span> 엔터</span></div><div class="card-footer"><div class="card-price"><span class="from">1인 기준</span><div class="amount"><span class="currency">$</span>${c.price.toLocaleString()}</div><span class="from-label">~부터</span></div><a href="${kakao}" class="btn btn-pill btn-pink" style="padding:10px 20px;font-size:14px">지금 예약</a></div></div></div>`;
-});
+const cruises=window.CRUISE_DATA||[];
+function fmtD(d){return new Date(d).toLocaleDateString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit'})}
+function mkHzCard(c,reverse){
+  const dep=fmtD(c.departure);
+  return `<div class="card-hz${reverse?' reverse':''}" onclick="location.href='${kakao}'">
+    <div class="card-hz-img"><img src="${c.image}" alt="${c.title}" loading="lazy"><button onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'" style="position:absolute;top:12px;right:12px;background:rgba(0,0,0,.5);border:none;border-radius:50%;width:34px;height:34px;font-size:16px;cursor:pointer;color:#fff;z-index:3">♡</button></div>
+    <div class="card-hz-body">
+      <span class="card-hz-badge">${c.badge}</span>
+      <div class="card-hz-op">${c.operator}</div>
+      <h3 class="card-hz-title">🚢 ${c.title}</h3>
+      <div class="card-hz-meta"><span>📍 ${c.port}</span><span>📅 ${dep}</span><span>🌙 ${c.nights}박 ${c.nights+1}일</span><span>🗺️ ${c.destination}</span></div>
+      <div class="card-hz-includes"><span class="tag">식사 포함</span><span class="tag">음료 포함</span><span class="tag">엔터</span></div>
+      <div class="card-hz-footer"><div class="card-hz-price"><span class="price-from">부터</span><div class="price-val">$${c.price.toLocaleString()} <span>/ 1인</span></div></div><button class="card-hz-cta">예약하기</button></div>
+    </div>
+  </div>`;
+}
+function mkVtCard(c){
+  const dep=fmtD(c.departure);
+  return `<div class="cruise-card" onclick="location.href='${kakao}'">
+    <div class="card-img" style="position:relative;overflow:hidden;height:180px"><img src="${c.image}" alt="${c.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s"><span class="card-badge badge-special" style="position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;background:#ff3366;color:#fff">${c.badge}</span><button onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'" style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);border:none;border-radius:50%;width:30px;height:30px;font-size:14px;cursor:pointer;color:#fff">♡</button></div>
+    <div class="card-body"><div class="card-operator">${c.operator}</div><div class="card-title">🚢 ${c.title}</div><div class="card-meta"><span>📍 ${c.port}</span><span>📅 ${dep}</span><span>🌙 ${c.nights}박</span></div><div class="card-includes"><span class="tag">식사</span><span class="tag">음료</span></div><div class="card-footer"><div class="card-price"><span class="from">부터</span><div class="amount"><span class="currency">$</span>${c.price.toLocaleString()}</div></div><a href="${kakao}" class="btn btn-pill btn-pink" style="padding:8px 16px;font-size:13px">예약</a></div></div>
+  </div>`;
+}
+if(cruises.length>=6){
+  grid.innerHTML=`
+    ${mkHzCard(cruises[0],false)}
+    <div class="layout-c-smalls">
+      ${mkVtCard(cruises[2])}${mkVtCard(cruises[3])}${mkVtCard(cruises[4])}
+    </div>
+    ${mkHzCard(cruises[1],true)}
+    ${mkHzCard(cruises[5],false)}
+  `;
+}
 document.getElementById('menu-toggle').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
 </script>
 </body>

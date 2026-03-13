@@ -71,7 +71,18 @@ a{text-decoration:none;color:inherit}
 .section-header h2{font-size:clamp(26px,3.5vw,38px);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:12px}
 .section-header p{font-size:16px;color:var(--text-light);max-width:560px;margin:0 auto}
 /* CRUISE CARDS */
-.deals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
+/* === PATTERN A: Featured + Grid Layout === */
+.deals-grid{}
+.layout-a-top{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-bottom:24px;align-items:stretch}
+.layout-a-stack{display:flex;flex-direction:column;gap:24px}
+.layout-a-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card-featured .card-img{height:300px}
+.card-featured .card-desc{font-size:14px;color:var(--text-light);line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-sm .card-img{height:148px}
+.card-sm .card-meta{flex-direction:row;flex-wrap:wrap;gap:8px}
+.card-sm .card-includes{padding:6px 10px}
+.card-featured .card-img::before{content:'⭐ FEATURED';position:absolute;bottom:14px;right:14px;background:rgba(0,0,0,.55);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:4px;z-index:2}
+
 .cruise-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;cursor:pointer;display:flex;flex-direction:column}
 .cruise-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover)}
 .card-img{position:relative;height:200px;overflow:hidden}
@@ -164,4 +175,5 @@ a{text-decoration:none;color:inherit}
   .newsletter-form{justify-content:center;width:100%}.newsletter-form input{min-width:0;width:100%}
   .top-bar .inner{flex-direction:column;gap:4px;text-align:center}
 }
-@media(max-width:480px){.deals-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.section{padding:60px 0}}
+@media(max-width:768px){.layout-a-top{grid-template-columns:1fr}.layout-a-stack{flex-direction:row}.layout-a-bottom{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.layout-a-stack{flex-direction:column}.layout-a-bottom{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.section{padding:60px 0}}

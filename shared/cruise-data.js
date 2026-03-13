@@ -1,5 +1,5 @@
 /**
- * cruise-data.js — 크루즈 상품 공통 데이터
+ * cruise-data.js — 크루즈 상품 공통 데이터 (6개)
  */
 window.CRUISE_DATA = [
   {
@@ -13,7 +13,9 @@ window.CRUISE_DATA = [
     port: "바르셀로나",
     price: 869,
     image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&q=80",
-    badge: "특가"
+    badge: "특가",
+    rating: 4.9,
+    reviews: 128
   },
   {
     id: 2,
@@ -26,7 +28,9 @@ window.CRUISE_DATA = [
     port: "시애틀",
     price: 1249,
     image: "https://images.unsplash.com/photo-1531253337352-b0082a7e0c42?w=800&q=80",
-    badge: "인기"
+    badge: "인기",
+    rating: 4.8,
+    reviews: 96
   },
   {
     id: 3,
@@ -39,7 +43,9 @@ window.CRUISE_DATA = [
     port: "모나코",
     price: 3850,
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-    badge: "럭셔리"
+    badge: "럭셔리",
+    rating: 5.0,
+    reviews: 42
   },
   {
     id: 4,
@@ -52,7 +58,9 @@ window.CRUISE_DATA = [
     port: "도쿄",
     price: 309,
     image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
-    badge: "얼리버드"
+    badge: "얼리버드",
+    rating: 4.7,
+    reviews: 215
   },
   {
     id: 5,
@@ -65,6 +73,23 @@ window.CRUISE_DATA = [
     port: "마이애미",
     price: 1099,
     image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
-    badge: "크리스마스"
+    badge: "크리스마스",
+    rating: 4.9,
+    reviews: 302
+  },
+  {
+    id: 6,
+    title: "프린세스 북유럽 피오르드 14박",
+    destination: "북유럽",
+    ship: "Sky Princess",
+    operator: "Princess Cruises",
+    nights: 14,
+    departure: "2026-07-20",
+    port: "코펜하겐",
+    price: 2199,
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    badge: "인기",
+    rating: 4.8,
+    reviews: 87
   }
 ];

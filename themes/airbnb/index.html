@@ -192,12 +192,13 @@
     if (A.primaryColor) document.documentElement.style.setProperty('--primary', A.primaryColor);
   }
 
-  // Ratings mock data
-  const ratings = [4.92, 4.87, 4.95, 4.78, 4.89];
-  const reviews = [128, 94, 212, 67, 156];
-  const wishlisted = [false, true, false, false, true];
+  // Ratings mock data (now from data if available)
+  const wishlisted = [false, true, false, false, true, false];
+  // B-pattern size assignment: lg=index1, sm=index2, md=rest
+  const bSizes = ['card-b-md','card-b-lg','card-b-sm','card-b-sm','card-b-md','card-b-md'];
 
-  // Render cards
+  function fmtD(d){return new Date(d).toLocaleDateString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit'})}
+
   function renderCards(filter = '전체') {
     const grid = document.getElementById('cards-grid');
     let items = CRUISES;
@@ -209,25 +210,27 @@
       return;
     }
 
-    grid.innerHTML = items.map((c, i) => `
-      <div class="cruise-card">
+    grid.innerHTML = items.map((c, i) => {
+      const dep = fmtD(c.departure);
+      const sz = bSizes[i] || 'card-b-md';
+      const rating = c.rating || 4.8;
+      const revCnt = c.reviews || 100;
+      return `<div class="cruise-card ${sz}" onclick="location.href='${A.kakao||'#'}'">
         <div class="card-image">
           <img src="${c.image}" alt="${c.title}" loading="lazy">
-          <span class="card-badge-ab">${c.badge}</span>
-          <button class="wishlist-btn" onclick="toggleWish(this)">${wishlisted[i] ? '❤️' : '🤍'}</button>
+          <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">${wishlisted[i] ? '❤️' : '🤍'}</button>
         </div>
         <div class="card-body">
-          <div class="card-title-ab">${c.ship} · ${c.destination} ${c.nights}박</div>
-          <div class="card-sub">${c.operator} · ${c.port} 출발</div>
-          <div class="card-rating">
-            <span class="star">⭐</span>
-            <span>${ratings[i % ratings.length]}</span>
-            <span class="count">(리뷰 ${reviews[i % reviews.length]}개)</span>
+          <div class="card-top-row" style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="card-title-ab">${c.ship} · ${c.destination} ${c.nights}박</div>
+            <div class="card-rating" style="flex-shrink:0"><span class="star">⭐</span> ${rating}</div>
           </div>
-          <div class="card-price-ab"><strong>$${c.price.toLocaleString()}</strong> / 1인</div>
+          <div class="card-sub">${c.operator} · ${c.port} 출발 · 📅 ${dep}</div>
+          <div style="font-size:12px;color:#717171;margin:4px 0 0">리뷰 ${revCnt}개</div>
+          <div class="card-price-ab" style="margin-top:8px"><strong>$${c.price.toLocaleString()}</strong> / 1인 <span style="font-size:11px;color:#717171;">부터</span></div>
         </div>
-      </div>
-    `).join('');
+      </div>`;
+    }).join('');
   }
 
   function toggleWish(btn) {

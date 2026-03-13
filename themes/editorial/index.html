@@ -147,28 +147,34 @@
     document.getElementById('footer-kakao').href = kakao;
   }
 
-  function renderFeatured() {
-    const items = CRUISES.slice(0, 3);
-    const departureDates = items.map(c => {
-      const d = new Date(c.departure);
-      return (d.getMonth()+1) + '.' + d.getDate();
-    });
+  function fmtD(d){const dt=new Date(d);return (dt.getMonth()+1)+'.'+dt.getDate()}
+  // B-pattern: index1=large(span2), index2=small, others=md
+  const edSizes = ['','ed-card-lg','ed-card-sm','ed-card-sm','',''];
 
-    document.getElementById('featured-grid').innerHTML = items.map((c, i) => `
-      <div class="ed-card" onclick="alert('상담 문의: ${A.phone || '02-0000-0000'}')">
-        <div class="ed-card-image">
+  function renderFeatured() {
+    const items = CRUISES.slice(0, 6);
+    const kakao = A.kakao || '#';
+    document.getElementById('featured-grid').innerHTML = items.map((c, i) => {
+      const dep = fmtD(c.departure);
+      const sz = edSizes[i] || '';
+      const rating = c.rating || 4.8;
+      return `<div class="ed-card ${sz}" onclick="location.href='${kakao}'" style="position:relative">
+        <div class="ed-card-image" style="position:relative;overflow:hidden">
           <img src="${c.image}" alt="${c.title}" loading="lazy">
           <span class="ed-card-tag">${c.destination}</span>
+          <button onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'" style="position:absolute;top:10px;right:10px;background:rgba(250,249,246,.9);border:1px solid #ddd;border-radius:50%;width:32px;height:32px;font-size:15px;cursor:pointer;z-index:3">♡</button>
         </div>
-        <div class="ed-card-date">출발 ${departureDates[i]} · ${c.nights}박 · ${c.port}</div>
+        <div class="ed-card-date">출발 ${dep} · ${c.nights}박 · ${c.port}</div>
         <div class="ed-card-title">${c.title}</div>
         <div class="ed-card-excerpt">${c.operator}와 함께하는 ${c.destination} 크루즈. ${c.ship}를 타고 특별한 항해를 경험하세요.</div>
+        <div style="font-size:12px;color:#999;margin-bottom:6px">⭐ ${rating} (리뷰 ${c.reviews||100}개)</div>
         <div class="ed-card-price">
           <span class="ed-price">$${c.price.toLocaleString()}</span>
           <span class="ed-nights">/ 1인 · ${c.nights}박</span>
         </div>
-      </div>
-    `).join('');
+        <a href="${kakao}" class="ed-card-cta" style="font-size:13px;font-weight:600;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);display:inline-block;margin-top:8px">예약하기 →</a>
+      </div>`;
+    }).join('');
   }
 
   init();

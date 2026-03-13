@@ -125,11 +125,50 @@ document.getElementById('top-phone').textContent=phone;document.getElementById('
 const fhp=document.getElementById('footer-homepage');if(fhp)fhp.href=hp;
 const badgeMap={'특가':'badge-special','인기':'badge-popular','얼리버드':'badge-early','럭셔리':'badge-luxury','크리스마스':'badge-holiday'};
 const grid=document.getElementById('deals-grid');
-(window.CRUISE_DATA||[]).forEach(c=>{
-  const dep=new Date(c.departure).toLocaleDateString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit'});
+const cruises=window.CRUISE_DATA||[];
+function fmtD(d){return new Date(d).toLocaleDateString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit'})}
+function cardBody(c,kakao){
   const bc=badgeMap[c.badge]||'badge-special';
-  grid.innerHTML+=`<div class="cruise-card" onclick="location.href='${kakao}'"><div class="card-img"><img src="${c.image}" alt="${c.title}" loading="lazy"><span class="card-badge ${bc}">${c.badge}</span></div><div class="card-body"><div class="card-operator">${c.operator}</div><div class="card-title">🚢 ${c.title}</div><div class="card-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep} · ${c.nights}박 ${c.nights+1}일</span><span>🗺️ ${c.destination}</span></div><div class="card-includes"><span>포함:</span><span><span class="check">✓</span> 식사</span><span><span class="check">✓</span> 음료</span><span><span class="check">✓</span> 엔터</span></div><div class="card-footer"><div class="card-price"><span class="from">1인 기준</span><div class="amount"><span class="currency">$</span>${c.price.toLocaleString()}</div><span class="from-label">~부터</span></div><a href="${kakao}" class="btn btn-primary">지금 예약</a></div></div></div>`;
-});
+  const dep=fmtD(c.departure);
+  return `<div class="card-img-wrap" style="position:relative;overflow:hidden">
+    <div class="card-img"><img src="${c.image}" alt="${c.title}" loading="lazy"><span class="card-badge ${bc}">${c.badge}</span></div>
+    <button class="wish-btn" onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'" style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,.85);border:none;border-radius:50%;width:34px;height:34px;font-size:16px;cursor:pointer;z-index:3">♡</button>
+  </div>
+  <div class="card-body">
+    <div class="card-operator">${c.operator} · ${c.destination}</div>
+    <div class="card-title">🚢 ${c.title}</div>
+    <div class="card-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep}</span><span>🌙 ${c.nights}박 ${c.nights+1}일</span></div>
+    <div class="card-includes"><span class="tag">식사 포함</span><span class="tag">음료 포함</span><span class="tag">엔터</span></div>
+    <div class="card-footer"><div class="card-price"><span class="from">부터</span><div class="amount"><span class="currency">$</span>${c.price.toLocaleString()}</div><span class="from-label">/ 1인</span></div><a href="${kakao}" class="btn btn-primary">예약하기</a></div>
+  </div>`;
+}
+function featuredBody(c,kakao){
+  const bc=badgeMap[c.badge]||'badge-special';
+  const dep=fmtD(c.departure);
+  return `<div class="card-img-wrap" style="position:relative;overflow:hidden">
+    <div class="card-img"><img src="${c.image}" alt="${c.title}" loading="lazy"><span class="card-badge ${bc}">${c.badge}</span></div>
+    <button class="wish-btn" onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'" style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,.85);border:none;border-radius:50%;width:34px;height:34px;font-size:16px;cursor:pointer;z-index:3">♡</button>
+  </div>
+  <div class="card-body">
+    <div class="card-operator">${c.operator} · ${c.destination}</div>
+    <div class="card-title" style="font-size:20px">🚢 ${c.title}</div>
+    <p class="card-desc">세계 최고의 선사 ${c.operator}과 함께하는 ${c.destination} 특별 크루즈. ${c.nights}박 동안 잊을 수 없는 항해를 경험하세요.</p>
+    <div class="card-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep}</span><span>🌙 ${c.nights}박 ${c.nights+1}일</span></div>
+    <div class="card-includes"><span class="tag">식사 포함</span><span class="tag">음료 포함</span><span class="tag">엔터</span></div>
+    <div class="card-footer"><div class="card-price"><span class="from">부터</span><div class="amount"><span class="currency">$</span>${c.price.toLocaleString()}</div><span class="from-label">/ 1인</span></div><a href="${kakao}" class="btn btn-primary">예약하기</a></div>
+  </div>`;
+}
+if(cruises.length>=6){
+  const top=grid;
+  const row1=document.createElement('div');row1.className='layout-a-top';
+  const feat=document.createElement('div');feat.className='cruise-card card-featured';feat.onclick=()=>location.href=kakao;feat.innerHTML=featuredBody(cruises[0],kakao);
+  const stack=document.createElement('div');stack.className='layout-a-stack';
+  [cruises[1],cruises[2]].forEach(c=>{const el=document.createElement('div');el.className='cruise-card card-sm';el.onclick=()=>location.href=kakao;el.innerHTML=cardBody(c,kakao);stack.appendChild(el)});
+  row1.appendChild(feat);row1.appendChild(stack);
+  const row2=document.createElement('div');row2.className='layout-a-bottom';
+  [cruises[3],cruises[4],cruises[5]].forEach(c=>{const el=document.createElement('div');el.className='cruise-card';el.onclick=()=>location.href=kakao;el.innerHTML=cardBody(c,kakao);row2.appendChild(el)});
+  top.appendChild(row1);top.appendChild(row2);
+}
 document.getElementById('menu-toggle').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
 </script>
 </body>
