@@ -81,9 +81,7 @@
 
 <!-- PRODUCT GRID -->
 <section class="section-products">
-  <div class="cards-grid" id="cards-grid">
-    <!-- JS로 렌더링 -->
-  </div>
+  <div id="cards-grid"></div>
 </section>
 
 <!-- WHY CRUISE -->
@@ -170,6 +168,126 @@
 
 <!-- Scripts -->
 <script src="../../agency-config.js"></script>
+<script src="../../shared/cruise-data.js"></script>
+<script>
+  const A = window.AGENCY || {};
+  const CRUISES = window.CRUISE_DATA || [];
+  function init() {
+    const name = A.name || '크루즈여행사';
+    document.title = name + ' — Airbnb Style';
+    document.getElementById('header-logo').textContent = '🚢 ' + name;
+    document.getElementById('footer-logo').textContent = '🚢 ' + name;
+    document.getElementById('footer-copyright').textContent = '© ' + new Date().getFullYear() + ' ' + name + '. All rights reserved.';
+    document.getElementById('footer-info').innerHTML = (A.tagline || '당신의 크루즈 여행 전문가') + '<br>Tel: ' + (A.phone || '') + '<br>Email: ' + (A.email || '');
+    document.getElementById('cta-phone').href = 'tel:' + (A.phone || '');
+    document.getElementById('cta-phone').textContent = '📞 ' + (A.phone || '전화 상담');
+    document.getElementById('cta-kakao').href = A.kakao || '#';
+    document.getElementById('footer-kakao-link').href = A.kakao || '#';
+    if (A.primaryColor) document.documentElement.style.setProperty('--primary', A.primaryColor);
+  }
+
+  function fmtD(d){return new Date(d).toLocaleDateString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit'})}
+  const bgMap={'특가':'#E63946','인기':'#00338D','얼리버드':'#1a6b3c','럭셔리':'#C9A84C','크리스마스':'#7b2d8b'};
+  function bg(b){return bgMap[b]||'#E63946'}
+  const grid2=document.getElementById('cards-grid');
+  function mkFeat(c,kk){
+    const dep=fmtD(c.departure);
+    return `<div class="sec-featured"><div class="card-feat" onclick="location.href='${kk}'">
+      <img src="${c.image}" alt="${c.title}" loading="lazy">
+      <div class="card-feat-overlay"></div>
+      <button class="card-feat-wish" onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button>
+      <div class="card-feat-body">
+        <span class="card-feat-badge" style="background:${bg(c.badge)}">${c.badge}</span>
+        <div class="card-feat-op">${c.operator} · ${c.destination}</div>
+        <div class="card-feat-title">🚢 ${c.title}</div>
+        <div class="card-feat-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep}</span><span>🌙 ${c.nights}박 ${c.nights+1}일</span></div>
+        <div class="card-feat-includes"><span class="tag">식사 포함</span><span class="tag">음료 포함</span><span class="tag">엔터</span></div>
+        <div class="card-feat-footer">
+          <div class="card-feat-price"><span class="lbl">부터</span><div class="amt">$${c.price.toLocaleString()}</div><span class="unit">/ 1인</span></div>
+          <button class="card-feat-cta" onclick="event.stopPropagation();location.href='${kk}'">예약하기</button>
+        </div>
+      </div>
+    </div></div>`;
+  }
+  function mkMain(c,kk){
+    const dep=fmtD(c.departure);
+    return `<div class="card-main" onclick="location.href='${kk}'">
+      <div class="card-main-img">
+        <img src="${c.image}" alt="${c.title}" loading="lazy">
+        <span class="card-main-badge" style="background:${bg(c.badge)}">${c.badge}</span>
+        <button class="card-main-wish" onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button>
+      </div>
+      <div class="card-main-body">
+        <div class="card-main-op">${c.operator} · ${c.destination}</div>
+        <div class="card-main-title">🚢 ${c.title}</div>
+        <div class="card-main-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep}</span><span>🌙 ${c.nights}박 ${c.nights+1}일</span></div>
+        <div class="card-main-tags"><span class="tag">식사 포함</span><span class="tag">음료 포함</span><span class="tag">엔터</span></div>
+        <div class="card-main-footer">
+          <div class="card-main-price"><span class="lbl">부터</span><div class="amt">$${c.price.toLocaleString()}</div><span class="unit">/ 1인</span></div>
+          <button class="card-main-cta" onclick="event.stopPropagation();location.href='${kk}'">예약하기</button>
+        </div>
+      </div>
+    </div>`;
+  }
+  function mkQuick(c,kk){
+    const dep=fmtD(c.departure);
+    return `<div class="card-quick" onclick="location.href='${kk}'">
+      <img src="${c.image}" alt="${c.title}" loading="lazy">
+      <div class="card-quick-overlay"></div>
+      <div class="card-quick-body">
+        <span class="card-quick-badge" style="background:${bg(c.badge)}">${c.badge}</span>
+        <div class="card-quick-op">${c.operator}</div>
+        <div class="card-quick-title">🚢 ${c.title}</div>
+        <div class="card-quick-meta">📍 ${c.port} · 📅 ${dep}</div>
+        <div class="card-quick-footer">
+          <div class="card-quick-price">$${c.price.toLocaleString()}<span> / 1인</span></div>
+          <button class="card-quick-cta" onclick="event.stopPropagation();location.href='${kk}'">예약</button>
+        </div>
+      </div>
+    </div>`;
+  }
+  function renderGrid(cruises, kk){
+    if(cruises.length<6)return;
+    const mainHtml=`<div class="sec-main">${mkMain(cruises[1],kk)}${mkMain(cruises[2],kk)}${mkMain(cruises[3],kk)}</div>`;
+    const quickHtml=`<div class="sec-quick">${mkQuick(cruises[2],kk)}${mkQuick(cruises[3],kk)}${mkQuick(cruises[4],kk)}${mkQuick(cruises[5],kk)}</div>`;
+    grid2.innerHTML=mkFeat(cruises[0],kk)+mainHtml+quickHtml;
+  }
+
+  // Override card-main-wish style for airbnb (star rating style)
+  function mkMain_ab(c, kk) {
+    const dep = fmtD(c.departure);
+    const rating = c.rating || 4.8;
+    const reviews = c.reviews || 100;
+    return `<div class="card-main" onclick="location.href='${kk}'">
+      <div class="card-main-img">
+        <img src="${c.image}" alt="${c.title}" loading="lazy">
+        <span class="card-main-badge" style="background:${bg(c.badge)}">${c.badge}</span>
+        <button class="card-main-wish" onclick="event.stopPropagation();this.textContent=this.textContent==='🤍'?'❤️':'🤍'" style="font-size:18px;background:none;border:none;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)">🤍</button>
+      </div>
+      <div class="card-main-body">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div class="card-main-op">${c.operator} · ${c.destination}</div>
+          <div style="font-size:12px;font-weight:600;flex-shrink:0">⭐ ${rating}</div>
+        </div>
+        <div class="card-main-title">🚢 ${c.title}</div>
+        <div class="card-main-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep}</span><span>🌙 ${c.nights}박 ${c.nights+1}일</span></div>
+        <div style="font-size:11px;color:#717171;margin-bottom:8px">리뷰 ${reviews}개</div>
+        <div class="card-main-footer">
+          <div class="card-main-price"><span class="lbl">부터</span><div class="amt">$${c.price.toLocaleString()}</div><span class="unit">/ 1인</span></div>
+          <button class="card-main-cta" onclick="event.stopPropagation();location.href='${kk}'">예약하기</button>
+        </div>
+      </div>
+    </div>`;
+  }
+  function renderGrid_ab(cruises, kk) {
+    if(cruises.length<6)return;
+    const mainHtml=`<div class="sec-main">${mkMain_ab(cruises[1],kk)}${mkMain_ab(cruises[2],kk)}${mkMain_ab(cruises[3],kk)}</div>`;
+    const quickHtml=`<div class="sec-quick">${mkQuick(cruises[2],kk)}${mkQuick(cruises[3],kk)}${mkQuick(cruises[4],kk)}${mkQuick(cruises[5],kk)}</div>`;
+    grid2.innerHTML=mkFeat(cruises[0],kk)+mainHtml+quickHtml;
+  }
+  init();
+  renderGrid_ab(CRUISES, A.kakao||'#');
+</script>
 <script src="../../shared/cruise-data.js"></script>
 <script>
   const A = window.AGENCY || {};
