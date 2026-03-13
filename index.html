@@ -551,7 +551,7 @@
 
   <!-- 헤더 -->
   <header class="showcase-header">
-    <div class="badge">🎨 Cruise Theme Builder v1.0</div>
+    <div class="badge">🎨 Cruise Theme Builder v2.0</div>
     <h1>크루즈 여행사 웹빌더</h1>
     <p>agency-config.js 하나만 수정하면 전체 브랜딩 교체</p>
   </header>
@@ -573,7 +573,7 @@
       <div class="theme-card card-classic" onclick="openTheme('classic')">
         <div class="theme-preview preview-classic">
           <div class="prev-header">
-            <span class="prev-logo">크루즈나라</span>
+            <span class="prev-logo">크루즈여행사</span>
           </div>
           <div class="prev-hero">
             <div class="prev-title">당신의 크루즈 여행 전문가</div>
@@ -611,7 +611,7 @@
       <div class="theme-card card-luxury" onclick="openTheme('luxury')">
         <div class="theme-preview preview-luxury">
           <div class="prev-header">
-            <span class="prev-logo">크루즈나라</span>
+            <span class="prev-logo">크루즈여행사</span>
           </div>
           <div class="prev-hero">
             <div class="prev-title">당신의 크루즈 여행 전문가</div>
@@ -649,7 +649,7 @@
       <div class="theme-card card-minimal" onclick="openTheme('minimal')">
         <div class="theme-preview preview-minimal">
           <div class="prev-header">
-            <span class="prev-logo">크루즈나라</span>
+            <span class="prev-logo">크루즈여행사</span>
           </div>
           <div class="prev-hero">
             <div class="prev-title">당신의 크루즈 여행 전문가</div>
@@ -687,7 +687,7 @@
       <div class="theme-card card-bold" onclick="openTheme('bold')">
         <div class="theme-preview preview-bold">
           <div class="prev-header">
-            <span class="prev-logo">크루즈나라</span>
+            <span class="prev-logo">크루즈여행사</span>
           </div>
           <div class="prev-hero">
             <div class="prev-title">지금 바로 떠나자!</div>
@@ -721,6 +721,176 @@
         </div>
       </div>
 
+      <!-- Airbnb -->
+      <div class="theme-card card-airbnb" onclick="openTheme('airbnb')">
+        <div class="theme-preview preview-airbnb">
+          <div class="prev-header" style="background:#fff;border-bottom:1px solid #ddd;height:36px;display:flex;align-items:center;padding:0 14px;gap:8px;justify-content:space-between;">
+            <span style="color:#FF385C;font-size:0.72rem;font-weight:800;">🚢 크루즈여행사</span>
+            <div style="flex:1;max-width:160px;height:22px;background:#fff;border:1px solid #ddd;border-radius:20px;margin:0 8px;display:flex;align-items:center;padding:0 8px;gap:4px;">
+              <div style="flex:1;height:8px;background:#f0f0f0;border-radius:4px;"></div>
+              <div style="width:18px;height:18px;background:#FF385C;border-radius:50%;flex-shrink:0;"></div>
+            </div>
+            <div style="width:24px;height:24px;border:1px solid #ddd;border-radius:20px;background:#fff;"></div>
+          </div>
+          <div class="prev-hero" style="background:#fff;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 12px;">
+            <div style="color:#222;font-size:0.75rem;font-weight:700;margin-bottom:6px;">바다 위의 완벽한 여행</div>
+            <div style="width:90%;height:28px;background:#fff;border:1px solid #ddd;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;align-items:center;padding:0 8px;gap:4px;">
+              <div style="flex:1;height:8px;background:#f7f7f7;border-radius:4px;"></div>
+              <div style="width:24px;height:24px;background:#FF385C;border-radius:50%;flex-shrink:0;"></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;padding:8px 10px;background:#f7f7f7;">
+            <div style="flex:1;height:36px;background:#fff;border-radius:10px;border:1px solid #eee;"></div>
+            <div style="flex:1;height:36px;background:#fff;border-radius:10px;border:1px solid #eee;"></div>
+            <div style="flex:1;height:36px;background:#fff;border-radius:10px;border:1px solid #eee;"></div>
+          </div>
+        </div>
+        <div class="theme-info">
+          <div class="theme-name">
+            <h2 style="color:#FF385C;">Airbnb</h2>
+            <span class="theme-tag" style="background:#fff0f3;color:#FF385C;">검색 중심</span>
+          </div>
+          <p class="theme-desc">에어비앤비 스타일 — 카드 그리드, 검색 중심. 카테고리 필터, 위시리스트, 별점 카드.</p>
+          <div class="theme-colors">
+            <div class="color-dot" style="background:#FF385C;"></div>
+            <div class="color-dot" style="background:#FFFFFF;border-color:#ddd;"></div>
+            <div class="color-dot" style="background:#F7F7F7;border-color:#ddd;"></div>
+            <div class="color-dot" style="background:#222222;"></div>
+          </div>
+          <div class="theme-actions">
+            <button class="btn-preview" style="background:#FF385C;color:white;" onclick="event.stopPropagation();openTheme('airbnb')">미리보기 →</button>
+            <button class="btn-use" onclick="event.stopPropagation();showUseGuide('airbnb')">이 테마 사용하기</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apple -->
+      <div class="theme-card card-apple" onclick="openTheme('apple')">
+        <div class="theme-preview preview-apple" style="background:#000;">
+          <div style="background:rgba(0,0,0,0.72);height:32px;display:flex;align-items:center;padding:0 14px;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.08);">
+            <span style="color:#fff;font-size:0.7rem;font-weight:700;">🚢 크루즈여행사</span>
+            <div style="display:flex;gap:10px;">
+              <span style="color:rgba(255,255,255,0.6);font-size:0.6rem;">상품</span>
+              <span style="color:rgba(255,255,255,0.6);font-size:0.6rem;">선사</span>
+              <div style="background:#fff;color:#000;padding:2px 8px;border-radius:10px;font-size:0.58rem;font-weight:700;">상담</div>
+            </div>
+          </div>
+          <div style="flex:1;position:relative;overflow:hidden;height:100px;background:linear-gradient(135deg,#0a0a1a,#1a1a3a);">
+            <div style="position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.6));"></div>
+            <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:12px;text-align:center;">
+              <div style="color:#fff;font-size:0.88rem;font-weight:700;letter-spacing:-0.5px;margin-bottom:6px;">바다 위의 완벽한 자유</div>
+              <div style="color:rgba(255,255,255,0.5);font-size:0.6rem;margin-bottom:10px;">크루즈 예약은 크루즈여행사에서</div>
+              <div style="display:flex;gap:6px;">
+                <div style="border:1px solid rgba(255,255,255,0.5);color:#fff;padding:3px 10px;border-radius:12px;font-size:0.6rem;">상품 보기</div>
+                <div style="background:#fff;color:#000;padding:3px 10px;border-radius:12px;font-size:0.6rem;font-weight:700;">상담하기</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;padding:8px 10px;background:#111;">
+            <div style="flex:1;height:32px;background:#1D1D1F;border-radius:8px;"></div>
+            <div style="flex:1;height:32px;background:#1D1D1F;border-radius:8px;"></div>
+            <div style="flex:1;height:32px;background:#1D1D1F;border-radius:8px;"></div>
+          </div>
+        </div>
+        <div class="theme-info">
+          <div class="theme-name">
+            <h2 style="color:#fff;background:#000;padding:2px 8px;border-radius:4px;font-size:1rem;">Apple</h2>
+            <span class="theme-tag" style="background:#111;color:#86868B;">시네마틱</span>
+          </div>
+          <p class="theme-desc">애플 시네마틱 — 다크, 풀스크린, 미니멀. 블러 헤더, 풀스크린 히어로, 다크 카드.</p>
+          <div class="theme-colors">
+            <div class="color-dot" style="background:#000000;"></div>
+            <div class="color-dot" style="background:#1D1D1F;"></div>
+            <div class="color-dot" style="background:#FFFFFF;border-color:#ddd;"></div>
+            <div class="color-dot" style="background:#86868B;"></div>
+          </div>
+          <div class="theme-actions">
+            <button class="btn-preview" style="background:#111;color:#fff;" onclick="event.stopPropagation();openTheme('apple')">미리보기 →</button>
+            <button class="btn-use" onclick="event.stopPropagation();showUseGuide('apple')">이 테마 사용하기</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editorial -->
+      <div class="theme-card card-editorial" onclick="openTheme('editorial')">
+        <div class="theme-preview preview-editorial" style="background:#FAF9F6;">
+          <div style="background:#FAF9F6;border-bottom:1px solid #E0DDD8;height:36px;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:4px 0;gap:2px;">
+            <div style="font-size:0.6rem;color:#888;letter-spacing:1px;">2026 SUMMER</div>
+            <div style="font-size:0.72rem;font-weight:700;color:#111;font-style:italic;letter-spacing:-0.3px;">크루즈여행사</div>
+          </div>
+          <div style="display:grid;grid-template-columns:65fr 35fr;flex:1;min-height:80px;">
+            <div style="background:linear-gradient(135deg,#2a4a6a,#0a1628);position:relative;overflow:hidden;">
+              <div style="position:absolute;top:8px;left:8px;background:#C41E3A;color:#fff;font-size:0.5rem;font-weight:700;padding:2px 6px;letter-spacing:1px;">SUMMER SPECIAL</div>
+            </div>
+            <div style="background:#111;padding:8px;display:flex;flex-direction:column;justify-content:center;gap:4px;">
+              <div style="height:5px;background:rgba(250,249,246,0.15);border-radius:2px;width:80%;"></div>
+              <div style="height:5px;background:rgba(250,249,246,0.1);border-radius:2px;width:60%;"></div>
+              <div style="height:5px;background:rgba(250,249,246,0.1);border-radius:2px;width:90%;"></div>
+              <div style="margin-top:4px;"><div style="display:inline-block;width:50%;height:1.5px;background:rgba(250,249,246,0.3);"></div></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;padding:8px 10px;background:#FAF9F6;border-top:1px solid #E0DDD8;">
+            <div style="flex:1;height:30px;background:#fff;border:1px solid #E0DDD8;border-radius:2px;"></div>
+            <div style="flex:1;height:30px;background:#fff;border:1px solid #E0DDD8;border-radius:2px;"></div>
+            <div style="flex:1;height:30px;background:#fff;border:1px solid #E0DDD8;border-radius:2px;"></div>
+          </div>
+        </div>
+        <div class="theme-info">
+          <div class="theme-name">
+            <h2 style="color:#111;font-family:Georgia,serif;">Editorial</h2>
+            <span class="theme-tag" style="background:#fff5f5;color:#C41E3A;">매거진</span>
+          </div>
+          <p class="theme-desc">매거진 에디토리얼 — 세리프, 비대칭 레이아웃. 콘데나스트·보그 스타일 편집 디자인.</p>
+          <div class="theme-colors">
+            <div class="color-dot" style="background:#FAF9F6;border-color:#ddd;"></div>
+            <div class="color-dot" style="background:#111111;"></div>
+            <div class="color-dot" style="background:#C41E3A;"></div>
+            <div class="color-dot" style="background:#C8B99A;"></div>
+          </div>
+          <div class="theme-actions">
+            <button class="btn-preview" style="background:#111;color:#FAF9F6;font-family:Georgia,serif;" onclick="event.stopPropagation();openTheme('editorial')">미리보기 →</button>
+            <button class="btn-use" onclick="event.stopPropagation();showUseGuide('editorial')">이 테마 사용하기</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Neon -->
+      <div class="theme-card card-neon" onclick="openTheme('neon')">
+        <div class="theme-preview preview-neon" style="background:#0D0D1A;">
+          <div style="background:rgba(13,13,26,0.9);border-bottom:1px solid rgba(123,47,255,0.4);height:36px;display:flex;align-items:center;padding:0 14px;justify-content:space-between;">
+            <span style="color:#fff;font-size:0.7rem;font-weight:900;text-shadow:0 0 10px rgba(123,47,255,0.8);">🚢 크루즈여행사</span>
+            <div style="background:linear-gradient(135deg,#7B2FFF,#FF00AA);padding:3px 10px;border-radius:10px;font-size:0.58rem;font-weight:700;color:#fff;box-shadow:0 0 8px rgba(123,47,255,0.5);">상담하기</div>
+          </div>
+          <div style="flex:1;background:linear-gradient(135deg,rgba(123,47,255,0.15),rgba(0,245,255,0.08));display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;position:relative;min-height:80px;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(123,47,255,0.2),transparent 70%);"></div>
+            <div style="font-size:1rem;font-weight:900;background:linear-gradient(135deg,#7B2FFF,#00F5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.5px;margin-bottom:6px;position:relative;">CRUISE</div>
+            <div style="font-size:0.58rem;color:rgba(255,255,255,0.5);margin-bottom:8px;position:relative;">YOUR WORLD</div>
+          </div>
+          <div style="display:flex;gap:6px;padding:8px 10px;background:rgba(18,18,31,0.8);">
+            <div style="flex:1;height:32px;background:#181828;border-radius:8px;border:1px solid rgba(123,47,255,0.4);"></div>
+            <div style="flex:1;height:32px;background:#181828;border-radius:8px;border:1px solid rgba(0,245,255,0.3);"></div>
+            <div style="flex:1;height:32px;background:#181828;border-radius:8px;border:1px solid rgba(255,0,170,0.3);"></div>
+          </div>
+        </div>
+        <div class="theme-info">
+          <div class="theme-name">
+            <h2 style="color:#7B2FFF;text-shadow:0 0 8px rgba(123,47,255,0.4);">Neon</h2>
+            <span class="theme-tag" style="background:#1a0a3a;color:#7B2FFF;border:1px solid rgba(123,47,255,0.3);">Gen-Z</span>
+          </div>
+          <p class="theme-desc">네온 사이버펑크 — 다크, 글로우, Gen-Z. 그라디언트 텍스트, 네온 보더, 글로우 배지.</p>
+          <div class="theme-colors">
+            <div class="color-dot" style="background:#0D0D1A;"></div>
+            <div class="color-dot" style="background:#7B2FFF;"></div>
+            <div class="color-dot" style="background:#00F5FF;"></div>
+            <div class="color-dot" style="background:#FF00AA;"></div>
+          </div>
+          <div class="theme-actions">
+            <button class="btn-preview" style="background:linear-gradient(135deg,#7B2FFF,#FF00AA);color:#fff;box-shadow:0 0 12px rgba(123,47,255,0.4);" onclick="event.stopPropagation();openTheme('neon')">미리보기 →</button>
+            <button class="btn-use" onclick="event.stopPropagation();showUseGuide('neon')">이 테마 사용하기</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -748,7 +918,7 @@
     function showUseGuide(themeName) {
       const codeEl = document.getElementById('modal-code');
       const nameEl = document.getElementById('modal-theme-name');
-      codeEl.innerHTML = `window.AGENCY = {\n  <span class="highlight">theme: "${themeName}",</span>  // ← 여기만 바꾸면 됩니다\n  name: "크루즈나라",\n  tagline: "당신의 크루즈 여행 전문가",\n  // ... 나머지 설정\n};`;
+      codeEl.innerHTML = `window.AGENCY = {\n  <span class="highlight">theme: "${themeName}",</span>  // ← 여기만 바꾸면 됩니다\n  name: "크루즈여행사",\n  tagline: "당신의 크루즈 여행 전문가",\n  // ... 나머지 설정\n};`;
       nameEl.textContent = themeName;
       document.getElementById('use-modal').classList.add('active');
     }

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>크루즈여행사 — Neon Style</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="#" class="header-logo" id="header-logo">🚢 크루즈여행사</a>
+  <nav class="header-nav">
+    <a href="#hot">HOT PICKS</a>
+    <a href="#dest">목적지</a>
+    <a href="#cta">상담</a>
+    <button class="btn-nav-neon" id="btn-phone">📞 전화 상담</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-image-wrap">
+    <img src="https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1600&q=90" alt="크루즈">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge-neon">🌊 2026 크루즈 시즌 오픈</div>
+    <h1>CRUISE<br>YOUR WORLD</h1>
+    <p id="hero-sub">전 세계 크루즈를 한곳에서 · 크루즈여행사</p>
+    <div class="hero-buttons">
+      <a href="#hot" class="btn-neon-gradient">🔥 HOT PICKS 보기</a>
+      <a href="#cta" class="btn-neon-outline">💬 무료 상담</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOT PICKS -->
+<section class="hot-section" id="hot">
+  <div class="section-inner">
+    <div class="section-header-neon">
+      <div class="section-eyebrow">🔥 Hot Picks</div>
+      <h2 class="section-title-neon">지금 가장 핫한<br>크루즈 상품</h2>
+    </div>
+    <div class="neon-cards" id="neon-cards">
+      <!-- JS로 렌더링 -->
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="dest-section" id="dest">
+  <div class="section-inner">
+    <div class="section-header-neon">
+      <div class="section-eyebrow">✨ Destinations</div>
+      <h2 class="section-title-neon">목적지 탐색</h2>
+    </div>
+    <div class="dest-grid">
+      <div class="dest-item">
+        <div class="dest-circle">🏛️</div>
+        <span class="dest-label">지중해</span>
+      </div>
+      <div class="dest-item">
+        <div class="dest-circle">🌴</div>
+        <span class="dest-label">카리브해</span>
+      </div>
+      <div class="dest-item">
+        <div class="dest-circle">🏔️</div>
+        <span class="dest-label">알래스카</span>
+      </div>
+      <div class="dest-item">
+        <div class="dest-circle">⛩️</div>
+        <span class="dest-label">아시아</span>
+      </div>
+      <div class="dest-item">
+        <div class="dest-circle">🏰</div>
+        <span class="dest-label">북유럽</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <h2>지금 바로 출발하세요</h2>
+  <p>전문 상담원이 당신만의 크루즈를 찾아드립니다</p>
+  <div class="cta-buttons-neon">
+    <a href="#" class="btn-neon-gradient" id="cta-phone">📞 전화 상담하기</a>
+    <a href="#" class="btn-neon-outline" id="cta-kakao">💬 카카오톡 상담</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo" id="footer-logo">🚢 크루즈여행사</div>
+      <p id="footer-info">당신의 크루즈 여행 전문가</p>
+    </div>
+    <div class="footer-col">
+      <h4>크루즈 상품</h4>
+      <ul>
+        <li><a href="#">지중해 크루즈</a></li>
+        <li><a href="#">카리브해 크루즈</a></li>
+        <li><a href="#">알래스카 크루즈</a></li>
+        <li><a href="#">아시아 크루즈</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>고객 서비스</h4>
+      <ul>
+        <li><a href="#">예약 문의</a></li>
+        <li><a href="#">예약 변경</a></li>
+        <li><a href="#">취소/환불</a></li>
+        <li><a href="#">자주 묻는 질문</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>회사 정보</h4>
+      <ul>
+        <li><a href="#">회사 소개</a></li>
+        <li><a href="#">공지사항</a></li>
+        <li><a href="#">개인정보처리방침</a></li>
+        <li><a href="#" id="footer-kakao">카카오 채널</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="footer-copyright">© 2026 크루즈여행사. All rights reserved.</span>
+    <span>사업자등록번호: 000-00-00000 | 관광사업등록: 제0000호</span>
+  </div>
+</footer>
+
+<script src="../../agency-config.js"></script>
+<script src="../../shared/cruise-data.js"></script>
+<script>
+  const A = window.AGENCY || {};
+  const CRUISES = window.CRUISE_DATA || [];
+
+  const badgeClasses = ['badge-purple', 'badge-cyan', 'badge-pink'];
+
+  function init() {
+    const name = A.name || '크루즈여행사';
+    document.title = name + ' — Neon Style';
+    document.getElementById('header-logo').textContent = '🚢 ' + name;
+    document.getElementById('footer-logo').textContent = '🚢 ' + name;
+    document.getElementById('hero-sub').textContent = '전 세계 크루즈를 한곳에서 · ' + name;
+    document.getElementById('footer-copyright').textContent = '© ' + new Date().getFullYear() + ' ' + name + '. All rights reserved.';
+    document.getElementById('footer-info').innerHTML = (A.tagline || '당신의 크루즈 여행 전문가') + '<br>Tel: ' + (A.phone || '') + '<br>Email: ' + (A.email || '');
+
+    const phone = A.phone || '02-0000-0000';
+    const kakao = A.kakao || '#';
+
+    document.getElementById('btn-phone').textContent = '📞 ' + phone;
+    document.getElementById('btn-phone').onclick = () => window.open('tel:' + phone);
+    document.getElementById('cta-phone').href = 'tel:' + phone;
+    document.getElementById('cta-phone').textContent = '📞 ' + phone;
+    document.getElementById('cta-kakao').href = kakao;
+    document.getElementById('footer-kakao').href = kakao;
+  }
+
+  function renderCards() {
+    const top3 = CRUISES.slice(0, 3);
+    document.getElementById('neon-cards').innerHTML = top3.map((c, i) => `
+      <div class="neon-card" onclick="alert('상담 문의: ${A.phone || '02-0000-0000'}')">
+        <div class="neon-card-img">
+          <img src="${c.image}" alt="${c.title}" loading="lazy">
+          <span class="neon-badge ${badgeClasses[i]}">${c.badge}</span>
+        </div>
+        <div class="neon-card-body">
+          <div class="neon-card-title">${c.title}</div>
+          <div class="neon-card-sub">${c.operator} · ${c.port} 출발 · ${c.nights}박</div>
+          <div class="neon-card-footer">
+            <span class="neon-price">$${c.price.toLocaleString()}</span>
+            <span class="neon-nights">/ 1인</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  init();
+  renderCards();
+</script>
+</body>
+</html>

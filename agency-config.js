@@ -6,7 +6,7 @@
  */
 window.AGENCY = {
   theme: "classic",            // classic | luxury | minimal | bold
-  name: "크루즈나라",
+  name: "크루즈여행사",
   tagline: "당신의 크루즈 여행 전문가",
   logo: "",                    // 로고 이미지 URL (비워두면 텍스트 로고 사용)
   primaryColor: "#0a1628",
