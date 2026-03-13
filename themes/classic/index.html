@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>크루즈나라 — Classic Theme</title>
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 헤더 (JS 렌더링) -->
+  <div id="header-wrap"></div>
+
+  <!-- 히어로 -->
+  <div id="hero-wrap"></div>
+
+  <!-- 특가 상품 -->
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-title">
+        <h2>✈️ 이번 달 특가 상품</h2>
+        <p>한정된 기간, 최저가로 드리는 크루즈 여행</p>
+      </div>
+      <div class="cards-grid" id="cards-wrap"></div>
+    </div>
+  </section>
+
+  <!-- 파트너 슬라이더 -->
+  <div id="partners-wrap"></div>
+
+  <!-- CTA -->
+  <div id="cta-wrap"></div>
+
+  <!-- 푸터 -->
+  <div id="footer-wrap"></div>
+
+  <!-- 스크립트 (순서 중요) -->
+  <script src="../../agency-config.js"></script>
+  <script src="../../shared/cruise-data.js"></script>
+  <script src="../../shared/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('header-wrap').innerHTML = renderHeader();
+      document.getElementById('hero-wrap').innerHTML = renderHero();
+      document.getElementById('cards-wrap').innerHTML = renderCruiseCards(3);
+      document.getElementById('partners-wrap').innerHTML = renderPartners();
+      document.getElementById('cta-wrap').innerHTML = renderCTA();
+      document.getElementById('footer-wrap').innerHTML = renderFooter();
+    });
+  </script>
+</body>
+</html>
