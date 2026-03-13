@@ -135,6 +135,90 @@ document.getElementById('footer-copyright').textContent=`© 2026 ${name}. All ri
 ['cta-phone','footer-phone'].forEach(id=>{const el=document.getElementById(id);if(el){el.textContent=`📞 ${phone}`;el.href=`tel:${phone.replace(/-/g,'')}`}});
 ['nav-cta','hero-cta','cta-kakao','footer-kakao'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=kakao});
 const fhp=document.getElementById('footer-homepage');if(fhp)fhp.href=hp;
+
+  function fmtD(d){return new Date(d).toLocaleDateString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit'})}
+  const bgMap={'특가':'#E63946','인기':'#00338D','얼리버드':'#1a6b3c','럭셔리':'#C9A84C','크리스마스':'#7b2d8b'};
+  function bg(b){return bgMap[b]||'#E63946'}
+  const grid2=document.getElementById('collection-grid');
+  function mkFeat(c,kk){
+    const dep=fmtD(c.departure);
+    return `<div class="sec-featured"><div class="card-feat" onclick="location.href='${kk}'">
+      <img src="${c.image}" alt="${c.title}" loading="lazy">
+      <div class="card-feat-overlay"></div>
+      <button class="card-feat-wish" onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button>
+      <div class="card-feat-body">
+        <span class="card-feat-badge" style="background:${bg(c.badge)}">${c.badge}</span>
+        <div class="card-feat-op">${c.operator} · ${c.destination}</div>
+        <div class="card-feat-title">🚢 ${c.title}</div>
+        <div class="card-feat-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep}</span><span>🌙 ${c.nights}박 ${c.nights+1}일</span></div>
+        <div class="card-feat-includes"><span class="tag">식사 포함</span><span class="tag">음료 포함</span><span class="tag">엔터</span></div>
+        <div class="card-feat-footer">
+          <div class="card-feat-price"><span class="lbl">부터</span><div class="amt">$${c.price.toLocaleString()}</div><span class="unit">/ 1인</span></div>
+          <button class="card-feat-cta" onclick="event.stopPropagation();location.href='${kk}'">예약하기</button>
+        </div>
+      </div>
+    </div></div>`;
+  }
+  function mkMain(c,kk){
+    const dep=fmtD(c.departure);
+    return `<div class="card-main" onclick="location.href='${kk}'">
+      <div class="card-main-img">
+        <img src="${c.image}" alt="${c.title}" loading="lazy">
+        <span class="card-main-badge" style="background:${bg(c.badge)}">${c.badge}</span>
+        <button class="card-main-wish" onclick="event.stopPropagation();this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button>
+      </div>
+      <div class="card-main-body">
+        <div class="card-main-op">${c.operator} · ${c.destination}</div>
+        <div class="card-main-title">🚢 ${c.title}</div>
+        <div class="card-main-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep}</span><span>🌙 ${c.nights}박 ${c.nights+1}일</span></div>
+        <div class="card-main-tags"><span class="tag">식사 포함</span><span class="tag">음료 포함</span><span class="tag">엔터</span></div>
+        <div class="card-main-footer">
+          <div class="card-main-price"><span class="lbl">부터</span><div class="amt">$${c.price.toLocaleString()}</div><span class="unit">/ 1인</span></div>
+          <button class="card-main-cta" onclick="event.stopPropagation();location.href='${kk}'">예약하기</button>
+        </div>
+      </div>
+    </div>`;
+  }
+  function mkQuick(c,kk){
+    const dep=fmtD(c.departure);
+    return `<div class="card-quick" onclick="location.href='${kk}'">
+      <img src="${c.image}" alt="${c.title}" loading="lazy">
+      <div class="card-quick-overlay"></div>
+      <div class="card-quick-body">
+        <span class="card-quick-badge" style="background:${bg(c.badge)}">${c.badge}</span>
+        <div class="card-quick-op">${c.operator}</div>
+        <div class="card-quick-title">🚢 ${c.title}</div>
+        <div class="card-quick-meta">📍 ${c.port} · 📅 ${dep}</div>
+        <div class="card-quick-footer">
+          <div class="card-quick-price">$${c.price.toLocaleString()}<span> / 1인</span></div>
+          <button class="card-quick-cta" onclick="event.stopPropagation();location.href='${kk}'">예약</button>
+        </div>
+      </div>
+    </div>`;
+  }
+  function renderGrid(cruises, kk){
+    if(cruises.length<6)return;
+    const mainHtml=`<div class="sec-main">${mkMain(cruises[1],kk)}${mkMain(cruises[2],kk)}${mkMain(cruises[3],kk)}</div>`;
+    const quickHtml=`<div class="sec-quick">${mkQuick(cruises[2],kk)}${mkQuick(cruises[3],kk)}${mkQuick(cruises[4],kk)}${mkQuick(cruises[5],kk)}</div>`;
+    grid2.innerHTML=mkFeat(cruises[0],kk)+mainHtml+quickHtml;
+  }
+
+const cruises=window.CRUISE_DATA||[];
+renderGrid(cruises, kakao);
+const header=document.getElementById('site-header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+document.getElementById('menu-toggle').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
+</script>
+<script src="../../shared/cruise-data.js"></script>
+<script>
+const A=window.AGENCY||{};const name=A.name||'Cruise Maison';const nameU=name.toUpperCase();
+const phone=A.phone||'02-0000-0000';const kakao=A.kakao||'#';const hp=A.homepage||'#';
+['header-logo','footer-logo'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=nameU});
+document.title=`${name} — Luxury Theme`;
+document.getElementById('footer-copyright').textContent=`© 2026 ${name}. All rights reserved.`;
+['cta-phone','footer-phone'].forEach(id=>{const el=document.getElementById(id);if(el){el.textContent=`📞 ${phone}`;el.href=`tel:${phone.replace(/-/g,'')}`}});
+['nav-cta','hero-cta','cta-kakao','footer-kakao'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=kakao});
+const fhp=document.getElementById('footer-homepage');if(fhp)fhp.href=hp;
 const grid=document.getElementById('collection-grid');
 const cruises=window.CRUISE_DATA||[];
 function fmtD(d){return new Date(d).toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'})}
