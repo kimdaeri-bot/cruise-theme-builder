@@ -1,0 +1,337 @@
+/* ============================================================
+   theme-bold — 비비드 블루+오렌지, 젊고 에너지 넘치는 스타일
+   ============================================================ */
+
+:root {
+  --blue: #0066ff;
+  --blue-dark: #0047cc;
+  --blue-light: #338aff;
+  --orange: #ff6b35;
+  --orange-dark: #e5521e;
+  --bg: #f0f4ff;
+  --white: #ffffff;
+  --text: #0a0f1e;
+  --text-light: #ffffff;
+  --gray: #6b7280;
+}
+
+body {
+  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* 헤더 */
+.site-header {
+  background: var(--white);
+  border-bottom: 3px solid var(--blue);
+  box-shadow: 0 2px 12px rgba(0,102,255,0.1);
+}
+
+.site-logo,
+.logo-wrap {
+  color: var(--blue);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.site-nav a {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.site-nav a:hover {
+  color: var(--blue);
+  opacity: 1;
+}
+
+.btn-contact {
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 6px;
+  font-weight: 700;
+  padding: 8px 20px;
+  box-shadow: 0 4px 12px rgba(255,107,53,0.35);
+}
+
+.btn-contact:hover {
+  background: var(--orange-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255,107,53,0.45);
+}
+
+/* 히어로 */
+.hero {
+  background: linear-gradient(135deg, var(--blue) 0%, #0033aa 40%, #1a00cc 100%);
+  min-height: 580px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,107,53,0.25) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,102,255,0.3) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1400&q=70') center/cover no-repeat;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+.hero-content {
+  z-index: 10;
+}
+
+.hero h1 {
+  color: var(--white);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  letter-spacing: -2px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  line-height: 1.1;
+}
+
+.hero p {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.search-bar {
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.search-bar input {
+  background: rgba(255,255,255,0.95);
+  border-radius: 8px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.search-bar button {
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 4px 16px rgba(255,107,53,0.5);
+}
+
+.search-bar button:hover {
+  background: var(--orange-dark);
+  transform: scale(1.02);
+}
+
+/* 섹션 */
+.section {
+  background: var(--bg);
+}
+
+.section:nth-child(even) {
+  background: var(--white);
+}
+
+.section-title h2 {
+  color: var(--text);
+  font-weight: 900;
+  letter-spacing: -1px;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+}
+
+.section-title p {
+  color: var(--gray);
+  font-weight: 400;
+}
+
+/* 카드 */
+.cruise-card {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,102,255,0.08);
+  border: 2px solid transparent;
+  transition: all 0.25s;
+}
+
+.cruise-card:hover {
+  border-color: var(--blue-light);
+  box-shadow: 0 12px 40px rgba(0,102,255,0.2);
+}
+
+.card-image {
+  border-radius: 14px 14px 0 0;
+}
+
+.card-badge {
+  background: var(--orange);
+  color: var(--white);
+  font-weight: 800;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(255,107,53,0.4);
+}
+
+.card-body h3 {
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.card-meta, .card-route {
+  color: var(--gray);
+  font-weight: 400;
+}
+
+.price-current {
+  color: var(--blue);
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.price-discount {
+  color: var(--orange);
+  font-weight: 800;
+}
+
+.card-btn {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  color: var(--white);
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0,102,255,0.3);
+}
+
+.card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,102,255,0.4);
+}
+
+/* 파트너 */
+.partners {
+  background: var(--white);
+  border-top: 3px solid var(--bg);
+}
+
+.partner-item {
+  color: #aaa;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, #0a0f1e 0%, #001166 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,107,53,0.2) 0%, transparent 70%);
+}
+
+.cta-section h2 {
+  color: var(--white);
+  font-weight: 900;
+  letter-spacing: -1px;
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+}
+
+.cta-section p {
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+}
+
+.cta-btn-primary {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange);
+  font-weight: 800;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  box-shadow: 0 6px 20px rgba(255,107,53,0.45);
+}
+
+.cta-btn-primary:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(255,107,53,0.55);
+}
+
+.cta-btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.3);
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.cta-btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.6);
+}
+
+/* 푸터 */
+.site-footer {
+  background: #0a0f1e;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-brand .logo {
+  color: var(--blue-light);
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.footer-col h4 {
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-col ul li a {
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+}
+
+.footer-col ul li a:hover {
+  color: var(--blue-light);
+  opacity: 1;
+}
+
+.footer-inner {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
