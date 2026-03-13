@@ -1,0 +1,286 @@
+/* ============================================================
+   theme-minimal — 화이트+라이트그레이, 모던 미니멀
+   ============================================================ */
+
+:root {
+  --white: #ffffff;
+  --bg: #ffffff;
+  --bg2: #f8f8f8;
+  --text: #111111;
+  --text-muted: #888888;
+  --border: #e8e8e8;
+  --accent: #111111;
+}
+
+body {
+  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 300;
+}
+
+/* 헤더 */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-logo,
+.logo-wrap {
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.site-nav a {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+.btn-contact {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--text) !important;
+  border-radius: 2px;
+  font-weight: 400;
+}
+
+.btn-contact:hover {
+  background: var(--text);
+  color: var(--white);
+}
+
+/* 히어로 */
+.hero {
+  background: var(--bg2);
+  min-height: 480px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-bg-overlay {
+  display: none;
+}
+
+.hero h1 {
+  color: var(--text);
+  font-weight: 200;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.search-bar {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 6px;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  font-weight: 300;
+  border-radius: 1px;
+  color: var(--text);
+}
+
+.search-bar input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-bar button {
+  background: var(--text);
+  color: var(--white);
+  border-radius: 1px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.search-bar button:hover {
+  background: #333;
+}
+
+/* 섹션 */
+.section {
+  background: var(--white);
+}
+
+.section:nth-child(even) {
+  background: var(--bg2);
+}
+
+.section-title h2 {
+  color: var(--text);
+  font-weight: 300;
+  letter-spacing: -0.5px;
+}
+
+.section-title p {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* 카드 */
+.cruise-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.cruise-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-color: #ccc;
+}
+
+.card-badge {
+  background: var(--text);
+  color: var(--white);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  border-radius: 1px;
+}
+
+.card-body h3 {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.card-meta, .card-route {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.price-current {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.price-discount {
+  color: #666;
+}
+
+.card-btn {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--text) !important;
+  border-radius: 1px;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 10px;
+}
+
+.card-btn:hover {
+  background: var(--text);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* 파트너 */
+.partners {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.partner-item {
+  color: #bbb;
+  font-weight: 300;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* CTA */
+.cta-section {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+
+.cta-section h2 {
+  color: var(--text);
+  font-weight: 200;
+  letter-spacing: -0.5px;
+}
+
+.cta-section p {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.cta-btn-primary {
+  background: var(--text);
+  color: var(--white);
+  border-color: var(--text);
+  font-weight: 400;
+  border-radius: 2px;
+}
+
+.cta-btn-primary:hover {
+  background: #333;
+}
+
+.cta-btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  border-radius: 2px;
+}
+
+.cta-btn-secondary:hover {
+  border-color: var(--text);
+  text-decoration: none;
+}
+
+/* 푸터 */
+.site-footer {
+  background: var(--white);
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.footer-brand .logo {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.footer-col h4 {
+  color: #bbb;
+}
+
+.footer-col ul li a {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.footer-col ul li a:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+.footer-inner {
+  border-bottom-color: var(--border);
+}
+
+.footer-bottom {
+  color: #ccc;
+}
