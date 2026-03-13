@@ -3,41 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>크루즈나라 — Luxury Theme</title>
-  <link rel="stylesheet" href="../../shared/base.css">
+  <title>Luxury Cruise — Premium Theme</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="logo-text" id="header-logo">CRUISE MAISON</div>
+    <nav class="main-nav" id="main-nav">
+      <a href="#">컬렉션</a><a href="#">목적지</a><a href="#">선사</a><a href="#">저널</a>
+      <a href="#" class="nav-cta" id="nav-cta">INQUIRY</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-  <div id="header-wrap"></div>
-  <div id="hero-wrap"></div>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Exclusive Cruise Collection 2026</span>
+    <h1>항해는<br><em>예술이다</em></h1>
+    <p class="hero-sub">럭셔리 크루즈의 새로운 기준 — 지중해의 황금빛 노을 아래, 당신만을 위한 특별한 여정</p>
+    <a href="#" class="btn btn-gold-outline" id="hero-cta">컬렉션 탐색 →</a>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
 
-  <section class="section" id="products">
-    <div class="container">
-      <div class="section-title">
-        <h2>이번 달 특선 크루즈</h2>
-        <p>CURATED LUXURY EXPERIENCES</p>
-      </div>
-      <div class="cards-grid" id="cards-wrap"></div>
+<div class="promo-strip">
+  <div class="container">
+    <div class="promo-scroll">
+      <div class="promo-item"><div class="promo-icon">✦</div><div class="promo-text"><strong>여름 프리미어 컬렉션</strong><span>6월 출발 럭셔리 패키지 30% 할인</span></div><span class="promo-link">VIEW →</span></div>
+      <div class="promo-item"><div class="promo-icon">◎</div><div class="promo-text"><strong>익스플로라 지중해 10박</strong><span>모나코 출발 · 최고급 수트 포함</span></div><span class="promo-link">VIEW →</span></div>
+      <div class="promo-item"><div class="promo-icon">◈</div><div class="promo-text"><strong>컨시어지 완전 패키지</strong><span>항공 + 크루즈 + 호텔 통합 특가</span></div><span class="promo-link">VIEW →</span></div>
+      <div class="promo-item"><div class="promo-icon">♦</div><div class="promo-text"><strong>월드 크루즈 2027</strong><span>80박 세계 일주 · 조기예약 마감 임박</span></div><span class="promo-link">VIEW →</span></div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <div id="partners-wrap"></div>
-  <div id="cta-wrap"></div>
-  <div id="footer-wrap"></div>
+<section class="section bg-section" id="collection">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Curated Collection</span>
+      <h2>럭셔리 크루즈<br><em>컬렉션</em></h2>
+      <p>세계 최고의 럭셔리 선사와 함께하는 프리미엄 항해</p>
+    </div>
+    <div class="collection-grid" id="collection-grid"></div>
+  </div>
+</section>
 
-  <script src="../../agency-config.js"></script>
-  <script src="../../shared/cruise-data.js"></script>
-  <script src="../../shared/components.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('header-wrap').innerHTML = renderHeader();
-      document.getElementById('hero-wrap').innerHTML = renderHero();
-      document.getElementById('cards-wrap').innerHTML = renderCruiseCards(3);
-      document.getElementById('partners-wrap').innerHTML = renderPartners();
-      document.getElementById('cta-wrap').innerHTML = renderCTA();
-      document.getElementById('footer-wrap').innerHTML = renderFooter();
-    });
-  </script>
+<section class="section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Destinations</span>
+      <h2>목적지 <em>탐색</em></h2>
+      <p>세계 최고의 크루즈 기항지를 탐험하세요</p>
+    </div>
+    <div class="dest-circles">
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=200&q=80" alt="지중해"></div><span>지중해</span></div>
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1531253337352-b0082a7e0c42?w=200&q=80" alt="알래스카"></div><span>알래스카</span></div>
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=200&q=80" alt="카리브해"></div><span>카리브해</span></div>
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=200&q=80" alt="아시아"></div><span>아시아</span></div>
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80" alt="북유럽"></div><span>북유럽</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>우리를 선택하는 이유</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><div class="why-icon">🏆</div><h3>9개 선사 공식 판매사</h3><p>세계 최고 선사의 공식 파트너사입니다</p></div>
+      <div class="why-item"><div class="why-icon">💬</div><h3>Personal Concierge</h3><p>전담 컨시어지가 모든 여정을 완벽하게 준비합니다</p></div>
+      <div class="why-item"><div class="why-icon">🔒</div><h3>안전한 결제 보장</h3><p>에스크로 결제로 100% 안전한 거래를 보장합니다</p></div>
+      <div class="why-item"><div class="why-icon">✈️</div><h3>항공권 연계 서비스</h3><p>크루즈 + 항공을 최적 가격으로 연계 제공합니다</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="newsletter-text">
+        <span class="eyebrow">Private Access</span>
+        <h3>럭셔리 크루즈 특가 안내</h3>
+        <p>일반 공개 전 독점 특가와 신상품 소식을<br>이메일로 먼저 받아보세요</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false">
+        <input type="email" placeholder="이메일 주소를 입력하세요">
+        <button type="submit" class="btn-newsletter">구독하기</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="container cta-content">
+    <span class="eyebrow">Private Consultation</span>
+    <h2>나만을 위한<br>크루즈를 기획하세요</h2>
+    <p id="cta-desc">전담 여행 큐레이터와 함께 완벽한 럭셔리 항해를 설계합니다</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-gold" id="cta-kakao">💬 카카오톡 문의</a>
+      <a href="#" class="btn btn-gold-outline" id="cta-phone">📞 전화 상담</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="logo-text" id="footer-logo">CRUISE MAISON</div><p id="footer-desc">럭셔리 크루즈 전문 큐레이션 서비스.<br>최상의 항해 경험을 제공합니다.</p></div>
+      <div class="footer-col"><h4>Collection</h4><ul><li><a href="#">지중해 컬렉션</a></li><li><a href="#">카리브해 컬렉션</a></li><li><a href="#">알래스카 컬렉션</a></li><li><a href="#">월드 크루즈</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="#">개인 컨설팅</a></li><li><a href="#">그룹 예약</a></li><li><a href="#">허니문 패키지</a></li><li><a href="#">기업 연수</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a id="footer-phone" href="#">📞 02-0000-0000</a></li><li><a id="footer-kakao" href="#">💬 카카오 상담</a></li><li><a id="footer-homepage" href="#">🌐 홈페이지</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span id="footer-copyright">© 2026 Cruise Maison. All rights reserved.</span><div style="display:flex;gap:24px"><a href="#">개인정보처리방침</a><a href="#">이용약관</a></div></div>
+  </div>
+</footer>
+
+<script src="../../agency-config.js"></script>
+<script src="../../shared/cruise-data.js"></script>
+<script>
+const A=window.AGENCY||{};const name=A.name||'Cruise Maison';const nameU=name.toUpperCase();
+const phone=A.phone||'02-0000-0000';const kakao=A.kakao||'#';const hp=A.homepage||'#';
+['header-logo','footer-logo'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=nameU});
+document.title=`${name} — Luxury Theme`;
+document.getElementById('footer-copyright').textContent=`© 2026 ${name}. All rights reserved.`;
+['cta-phone','footer-phone'].forEach(id=>{const el=document.getElementById(id);if(el){el.textContent=`📞 ${phone}`;el.href=`tel:${phone.replace(/-/g,'')}`}});
+['nav-cta','hero-cta','cta-kakao','footer-kakao'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=kakao});
+const fhp=document.getElementById('footer-homepage');if(fhp)fhp.href=hp;
+const badgeMap={'특가':'#E63946','인기':'#00338D','얼리버드':'#1a6b3c','럭셔리':'#C9A84C','크리스마스':'#7b2d8b'};
+const grid=document.getElementById('collection-grid');
+const cruises=[...(window.CRUISE_DATA||[])].sort((a,b)=>b.price-a.price).slice(0,3);
+cruises.forEach(c=>{
+  const dep=new Date(c.departure).toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'});
+  const bc=badgeMap[c.badge]||'#C9A84C';
+  grid.innerHTML+=`<div class="col-card" onclick="location.href='${kakao}'"><img src="${c.image}" alt="${c.title}" loading="lazy"><span class="col-badge" style="border-color:${bc};color:${bc}">${c.badge}</span><div class="col-card-content"><div class="col-card-operator">${c.operator}</div><h3>${c.title}</h3><div class="col-card-meta"><span>📍 ${c.port}</span><span>🌙 ${c.nights}박</span></div><div class="col-card-meta">📅 ${dep}</div><div class="col-card-includes">식사 포함 · 엔터테인먼트 포함 · 음료 포함</div><div class="col-card-price">from <strong>$${c.price.toLocaleString()}</strong><span class="from-label">1인 기준</span></div><div class="col-card-reveal"><a href="${kakao}" class="btn btn-gold-outline" style="font-size:11px;padding:10px 22px">예약 문의 →</a></div></div></div>`;
+});
+const header=document.getElementById('site-header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+document.getElementById('menu-toggle').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
+</script>
 </body>
 </html>

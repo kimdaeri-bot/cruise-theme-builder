@@ -4,40 +4,151 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>크루즈나라 — Bold Theme</title>
-  <link rel="stylesheet" href="../../shared/base.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-text" id="header-logo">cruise<span class="accent">X</span></div>
+    <nav class="main-nav" id="main-nav">
+      <a href="#">상품</a><a href="#">목적지</a><a href="#">이벤트</a><a href="#">후기</a>
+      <a href="#" class="nav-cta" id="nav-cta">🔥 지금 예약</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-  <div id="header-wrap"></div>
-  <div id="hero-wrap"></div>
-
-  <section class="section" id="products">
-    <div class="container">
-      <div class="section-title">
-        <h2>🔥 지금 바로 떠나자!</h2>
-        <p>한정 특가, 지금 아니면 늦습니다</p>
-      </div>
-      <div class="cards-grid" id="cards-wrap"></div>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">✦ 2026 크루즈 시즌 오픈</span>
+    <h1>크루즈는<br><span class="line2">달라야 한다</span></h1>
+    <p>틀에 박힌 여행은 그만. 짜릿하고 강렬한 바다 위의 경험 — 당신이 진짜 원하는 크루즈</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-pill btn-pink" id="hero-cta">🔥 지금 바로 예약</a>
+      <a href="#" class="btn btn-pill btn-outline-pink" id="hero-kakao">💬 카카오 상담</a>
     </div>
-  </section>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">9+</div><div class="label">공식 파트너 선사</div></div>
+      <div class="hero-stat"><div class="num">2,400+</div><div class="label">누적 예약 고객</div></div>
+      <div class="hero-stat"><div class="num">4.9★</div><div class="label">평균 만족도</div></div>
+    </div>
+  </div>
+</section>
 
-  <div id="partners-wrap"></div>
-  <div id="cta-wrap"></div>
-  <div id="footer-wrap"></div>
+<div class="promo-strip">
+  <div class="container">
+    <div class="promo-scroll">
+      <div class="promo-item"><div class="promo-icon">🔥</div><div class="promo-text"><strong>여름 조기예약 특가</strong><span>6월 출발 전 상품 최대 30% 할인</span></div><span class="promo-link">GO →</span></div>
+      <div class="promo-item"><div class="promo-icon">✈️</div><div class="promo-text"><strong>항공+크루즈 패키지</strong><span>도쿄 출발 MSC 벨리시마 4박</span></div><span class="promo-link">GO →</span></div>
+      <div class="promo-item"><div class="promo-icon">🏝️</div><div class="promo-text"><strong>카리브해 크리스마스</strong><span>12월 22일 출발 · 마이애미</span></div><span class="promo-link">GO →</span></div>
+      <div class="promo-item"><div class="promo-icon">❄️</div><div class="promo-text"><strong>알래스카 여름 크루즈</strong><span>빙하 트래킹 + 크루즈 패키지</span></div><span class="promo-link">GO →</span></div>
+    </div>
+  </div>
+</div>
 
-  <script src="../../agency-config.js"></script>
-  <script src="../../shared/cruise-data.js"></script>
-  <script src="../../shared/components.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('header-wrap').innerHTML = renderHeader();
-      document.getElementById('hero-wrap').innerHTML = renderHero();
-      document.getElementById('cards-wrap').innerHTML = renderCruiseCards(3);
-      document.getElementById('partners-wrap').innerHTML = renderPartners();
-      document.getElementById('cta-wrap').innerHTML = renderCTA();
-      document.getElementById('footer-wrap').innerHTML = renderFooter();
-    });
-  </script>
+<section class="section" id="picks">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">THIS MONTH'S PICK</span>
+      <h2>이달의 <span class="hl">PICK</span></h2>
+      <p>지금 가장 핫한 크루즈 상품 — 놓치면 후회합니다</p>
+    </div>
+    <div class="deals-grid" id="deals-grid"></div>
+  </div>
+</section>
+
+<section class="section bg-section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="tag">HOT DESTINATIONS</span>
+      <h2>지금 <span class="hl">뜨는</span> 목적지</h2>
+      <p>트렌디한 여행자들이 선택한 크루즈 목적지</p>
+    </div>
+    <div class="dest-circles">
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=200&q=80" alt="지중해"></div><span>🌊 지중해</span></div>
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1531253337352-b0082a7e0c42?w=200&q=80" alt="알래스카"></div><span>❄️ 알래스카</span></div>
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=200&q=80" alt="카리브해"></div><span>🏖️ 카리브해</span></div>
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=200&q=80" alt="아시아"></div><span>🌸 아시아</span></div>
+      <div class="dest-circle"><div class="dest-circle-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80" alt="북유럽"></div><span>🏔️ 북유럽</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="tag">WHY US</span>
+      <h2>왜 <span class="hl">우리</span>인가</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item"><div class="trust-icon">🏆</div><h4>9개 선사 공식 판매사</h4><p>MSC, NCL, Royal Caribbean 등 9개 선사 공식 파트너</p></div>
+      <div class="trust-item"><div class="trust-icon">💬</div><h4>전문 상담사 1:1 맞춤</h4><p>크루즈 전문 상담사가 처음부터 끝까지</p></div>
+      <div class="trust-item"><div class="trust-icon">🔒</div><h4>안전한 결제 보장</h4><p>에스크로 시스템으로 100% 안전한 거래</p></div>
+      <div class="trust-item"><div class="trust-icon">✈️</div><h4>항공권 연계 서비스</h4><p>크루즈 + 항공 최적 가격 패키지</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="newsletter-text">
+        <span class="tag-sm">✦ EXCLUSIVE</span>
+        <h3>🔥 특가 알림 받아보기</h3>
+        <p>한정 특가 &amp; 얼리버드를 이메일로 가장 먼저!</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false">
+        <input type="email" placeholder="이메일 주소 입력">
+        <button type="submit" class="btn-newsletter">구독하기 🔥</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="container cta-content">
+    <h2>지금 <span class="hl">예약</span>하면<br>더 싸다</h2>
+    <p id="cta-desc">얼리버드 기간 한정 — 지금 상담하고 최대 30% 할인 받으세요</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-pill btn-pink" id="cta-kakao">💬 카카오 상담</a>
+      <a href="#" class="btn btn-pill btn-yellow" id="cta-phone">📞 전화 상담</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-text" id="footer-logo">cruise<span class="accent">X</span></div><p id="footer-desc">크루즈 전문 여행사<br>짜릿한 항해를 만들어드립니다.</p></div>
+      <div class="footer-col"><h4>상품</h4><ul><li><a href="#">지중해 크루즈</a></li><li><a href="#">카리브해 크루즈</a></li><li><a href="#">알래스카 크루즈</a></li><li><a href="#">아시아 크루즈</a></li></ul></div>
+      <div class="footer-col"><h4>고객 지원</h4><ul><li><a href="#">예약 안내</a></li><li><a href="#">취소·환불</a></li><li><a href="#">FAQ</a></li><li><a href="#">1:1 문의</a></li></ul></div>
+      <div class="footer-col"><h4>연락처</h4><ul><li><a id="footer-phone" href="#">📞 02-0000-0000</a></li><li><a id="footer-kakao" href="#">💬 카카오 상담</a></li><li><a id="footer-homepage" href="#">🌐 홈페이지</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span id="footer-copyright">© 2026 크루즈나라. All rights reserved.</span><div style="display:flex;gap:16px"><a href="#">개인정보처리방침</a><a href="#">이용약관</a></div></div>
+  </div>
+</footer>
+
+<script src="../../agency-config.js"></script>
+<script src="../../shared/cruise-data.js"></script>
+<script>
+const A=window.AGENCY||{};const name=A.name||'크루즈나라';const phone=A.phone||'02-0000-0000';const kakao=A.kakao||'#';const hp=A.homepage||'#';
+['header-logo','footer-logo'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=`cruise<span class="accent">X</span>`});
+document.title=`${name} — Bold Theme`;
+document.getElementById('footer-copyright').textContent=`© 2026 ${name}. All rights reserved.`;
+['cta-phone','footer-phone'].forEach(id=>{const el=document.getElementById(id);if(el){el.textContent=`📞 ${phone}`;el.href=`tel:${phone.replace(/-/g,'')}`}});
+['nav-cta','hero-cta','hero-kakao','cta-kakao','footer-kakao'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=kakao});
+const fhp=document.getElementById('footer-homepage');if(fhp)fhp.href=hp;
+const badgeMap={'특가':'badge-special','인기':'badge-popular','얼리버드':'badge-early','럭셔리':'badge-luxury','크리스마스':'badge-holiday'};
+const grid=document.getElementById('deals-grid');
+(window.CRUISE_DATA||[]).forEach(c=>{
+  const dep=new Date(c.departure).toLocaleDateString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit'});
+  const bc=badgeMap[c.badge]||'badge-special';
+  grid.innerHTML+=`<div class="cruise-card" onclick="location.href='${kakao}'"><div class="card-img"><img src="${c.image}" alt="${c.title}" loading="lazy"><span class="card-badge ${bc}">${c.badge}</span></div><div class="card-body"><div class="card-operator">${c.operator}</div><div class="card-title">🚢 ${c.title}</div><div class="card-meta"><span>📍 ${c.port} 출발</span><span>📅 ${dep} · ${c.nights}박 ${c.nights+1}일</span><span>🗺️ ${c.destination}</span></div><div class="card-includes"><span>포함:</span><span><span class="check">✓</span> 식사</span><span><span class="check">✓</span> 음료</span><span><span class="check">✓</span> 엔터</span></div><div class="card-footer"><div class="card-price"><span class="from">1인 기준</span><div class="amount"><span class="currency">$</span>${c.price.toLocaleString()}</div><span class="from-label">~부터</span></div><a href="${kakao}" class="btn btn-pill btn-pink" style="padding:10px 20px;font-size:14px">지금 예약</a></div></div></div>`;
+});
+document.getElementById('menu-toggle').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
+</script>
 </body>
 </html>
