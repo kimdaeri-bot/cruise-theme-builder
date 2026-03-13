@@ -1,0 +1,312 @@
+/* ============================================================
+   theme-luxury — 블랙+골드, 프리미엄 럭셔리 크루즈
+   ============================================================ */
+
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e4c97e;
+  --gold-dark: #9a7a32;
+  --bg: #0d0d0d;
+  --bg2: #141414;
+  --bg3: #1a1a1a;
+  --text: #e8d9b5;
+  --text-muted: #8a7a5a;
+  --border: rgba(201, 168, 76, 0.2);
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* 헤더 */
+.site-header {
+  background: rgba(13,13,13,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-logo,
+.logo-wrap {
+  color: var(--gold);
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: Georgia, serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  color: var(--text-muted);
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.site-nav a:hover {
+  color: var(--gold);
+  opacity: 1;
+}
+
+.btn-contact {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold) !important;
+  border-radius: 2px;
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  letter-spacing: 1px;
+}
+
+.btn-contact:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* 히어로 */
+.hero {
+  background: var(--bg);
+  min-height: 580px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1400&q=70') center/cover no-repeat;
+  opacity: 0.12;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(13,13,13,0.8) 100%);
+  z-index: 1;
+}
+
+.hero h1 {
+  color: var(--gold);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-shadow: 0 0 40px rgba(201,168,76,0.3);
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.search-bar {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.search-bar input {
+  background: var(--bg3);
+  color: var(--text);
+  border-radius: 1px;
+}
+
+.search-bar input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-bar button {
+  background: var(--gold);
+  color: var(--bg);
+  font-family: Georgia, serif;
+  letter-spacing: 1px;
+  border-radius: 1px;
+}
+
+.search-bar button:hover {
+  background: var(--gold-light);
+}
+
+/* 섹션 */
+.section {
+  background: var(--bg);
+}
+
+.section:nth-child(even) {
+  background: var(--bg2);
+}
+
+.section-title h2 {
+  color: var(--gold);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.section-title h2::before {
+  content: '— ';
+  opacity: 0.5;
+}
+
+.section-title h2::after {
+  content: ' —';
+  opacity: 0.5;
+}
+
+.section-title p {
+  color: var(--text-muted);
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* 카드 */
+.cruise-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.cruise-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 40px rgba(201,168,76,0.1);
+}
+
+.card-badge {
+  background: var(--gold);
+  color: var(--bg);
+  font-family: Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  border-radius: 1px;
+}
+
+.card-body h3 {
+  color: var(--text);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.card-meta, .card-route {
+  color: var(--text-muted);
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+}
+
+.price-current {
+  color: var(--gold);
+}
+
+.price-discount {
+  color: var(--gold-dark);
+}
+
+.card-btn {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold) !important;
+  border-radius: 1px;
+  font-family: Georgia, serif;
+  letter-spacing: 1px;
+}
+
+.card-btn:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* 파트너 */
+.partners {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.partners-title {
+  color: var(--text-muted);
+  letter-spacing: 3px;
+}
+
+.partner-item {
+  color: var(--text-muted);
+  font-family: Georgia, serif;
+  font-size: 0.88rem;
+  letter-spacing: 1px;
+}
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.cta-section h2 {
+  color: var(--gold);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.cta-section p {
+  color: var(--text-muted);
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+}
+
+.cta-btn-primary {
+  background: var(--gold);
+  color: var(--bg);
+  border-color: var(--gold);
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  letter-spacing: 1px;
+}
+
+.cta-btn-primary:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+.cta-btn-secondary {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--border);
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  letter-spacing: 1px;
+}
+
+.cta-btn-secondary:hover {
+  border-color: var(--gold);
+}
+
+/* 푸터 */
+.site-footer {
+  background: #080808;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+.footer-brand .logo {
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+.footer-col h4 {
+  color: var(--gold-dark);
+  letter-spacing: 2px;
+}
+
+.footer-col ul li a {
+  color: var(--text-muted);
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+}
+
+.footer-col ul li a:hover {
+  color: var(--gold);
+  opacity: 1;
+}
+
+.footer-inner {
+  border-bottom-color: var(--border);
+}
