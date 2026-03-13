@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>크루즈나라 — Luxury Theme</title>
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="header-wrap"></div>
+  <div id="hero-wrap"></div>
+
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-title">
+        <h2>이번 달 특선 크루즈</h2>
+        <p>CURATED LUXURY EXPERIENCES</p>
+      </div>
+      <div class="cards-grid" id="cards-wrap"></div>
+    </div>
+  </section>
+
+  <div id="partners-wrap"></div>
+  <div id="cta-wrap"></div>
+  <div id="footer-wrap"></div>
+
+  <script src="../../agency-config.js"></script>
+  <script src="../../shared/cruise-data.js"></script>
+  <script src="../../shared/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('header-wrap').innerHTML = renderHeader();
+      document.getElementById('hero-wrap').innerHTML = renderHero();
+      document.getElementById('cards-wrap').innerHTML = renderCruiseCards(3);
+      document.getElementById('partners-wrap').innerHTML = renderPartners();
+      document.getElementById('cta-wrap').innerHTML = renderCTA();
+      document.getElementById('footer-wrap').innerHTML = renderFooter();
+    });
+  </script>
+</body>
+</html>
