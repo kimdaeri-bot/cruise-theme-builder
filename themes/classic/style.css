@@ -1,0 +1,225 @@
+/* ============================================================
+   theme-classic — 네이비+화이트, 신뢰감 있는 전통 여행사 스타일
+   ============================================================ */
+
+:root {
+  --primary: #0a1628;
+  --accent: #e63946;
+  --white: #ffffff;
+  --light: #f4f7fb;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+}
+
+body {
+  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  background: var(--light);
+  color: var(--primary);
+}
+
+/* 헤더 */
+.site-header {
+  background: var(--primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.site-logo,
+.logo-wrap {
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.site-nav a {
+  color: rgba(255,255,255,0.85);
+}
+
+.site-nav a:hover {
+  color: var(--white);
+  opacity: 1;
+}
+
+.btn-contact {
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 4px;
+}
+
+.btn-contact:hover {
+  background: #c1121f;
+}
+
+/* 히어로 */
+.hero {
+  background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 60%, #2d6a9f 100%);
+  color: var(--white);
+  min-height: 540px;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1400&q=70') center/cover no-repeat;
+  opacity: 0.18;
+}
+
+.hero h1 {
+  color: var(--white);
+  font-weight: 800;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  color: rgba(255,255,255,0.9);
+}
+
+.search-bar {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.search-bar button {
+  background: var(--accent);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.search-bar button:hover {
+  background: #c1121f;
+}
+
+/* 상품 섹션 */
+.section {
+  background: var(--white);
+}
+
+.section:nth-child(even) {
+  background: var(--light);
+}
+
+.section-title h2 {
+  color: var(--primary);
+}
+
+.section-title p {
+  color: var(--gray);
+}
+
+/* 카드 */
+.cruise-card {
+  background: var(--white);
+  box-shadow: 0 2px 16px rgba(10,22,40,0.08);
+  border: 1px solid var(--border);
+}
+
+.cruise-card:hover {
+  box-shadow: 0 12px 32px rgba(10,22,40,0.14);
+}
+
+.card-badge {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.card-body h3 {
+  color: var(--primary);
+}
+
+.card-meta, .card-route {
+  color: var(--gray);
+}
+
+.price-current {
+  color: var(--accent);
+}
+
+.price-discount {
+  color: var(--accent);
+}
+
+.card-btn {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.card-btn:hover {
+  background: #1a3a5c;
+}
+
+/* 파트너 */
+.partners {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.partner-item {
+  color: var(--primary);
+}
+
+/* CTA */
+.cta-section {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.cta-section h2 {
+  color: var(--white);
+}
+
+.cta-section p {
+  color: rgba(255,255,255,0.75);
+}
+
+.cta-btn-primary {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+.cta-btn-primary:hover {
+  background: #c1121f;
+}
+
+.cta-btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.cta-btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--white);
+}
+
+/* 푸터 */
+.site-footer {
+  background: #06101e;
+  color: rgba(255,255,255,0.85);
+}
+
+.footer-brand .logo {
+  color: var(--white);
+}
+
+.footer-col h4 {
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-col ul li a {
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-col ul li a:hover {
+  color: var(--white);
+  opacity: 1;
+}
+
+.footer-bottom {
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-inner {
+  border-bottom-color: rgba(255,255,255,0.1);
+}
